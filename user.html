@@ -10,6 +10,22 @@
    <h1>Github Users</h1>
    <div id="users">
 
+     <script>
+       document.getElementById('button').addEventListener('click', loadUsers);
+
+       // Load Gihub users
+       function loadUsers() {
+         var xhr = new XMLHttpRequest();
+         xhr.open('GET', 'https://api.github.com/users', true);
+
+         xhr.onload = function(){
+           if (this.status == 200) {
+             var users = JSON.parse(this.responseText);
+           }
+         }
+       }
+     </script>
+
    </div>
   </body>
 </html>
